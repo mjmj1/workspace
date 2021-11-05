@@ -53,7 +53,6 @@ createDiv.addEventListener("click", function () {
             page.appendChild(newDot);
         }
     }
-
     const list = document.querySelector(".list");
     const item = document.querySelectorAll(".item");
     const itemLen = item.length;
