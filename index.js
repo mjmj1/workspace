@@ -12,7 +12,7 @@ list.style.width = slideWidth * itemLen + "px";
 let curIndex = 0;
 
 slideBtnNext.addEventListener("click", function () {
-    if (curIndex < itemLen - 1) {
+    if (curIndex <= itemLen - 1) {
         list.style.transition = slideSpeed + "ms";
         list.style.transform =
             "translate3d(-" + slideWidth * (curIndex + 1) + "px, 0px, 0px)";
