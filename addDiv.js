@@ -6,57 +6,49 @@ createDiv.addEventListener("click", function () {
         for (i = 0; i < number; i++) {
             const list = document.querySelector(".list");
             const newDiv = document.createElement("div");
-            const page = document.querySelector(".slidePagination");
-            const newDot = document.createElement("li");
-            const item = document.querySelectorAll(".item");
-            const itemLen = item.length;
-            let indexNum = itemLen;
 
             newDiv.setAttribute("class", "item");
             list.appendChild(newDiv);
-            newDot.setAttribute("class", "dot");
-            newDot.setAttribute("date-index", `${parseInt(indexNum) + 1}`);
-            page.appendChild(newDot);
         }
     } else if (number < 1) {
         number = 1;
         for (i = 0; i < number; i++) {
             const list = document.querySelector(".list");
             const newDiv = document.createElement("div");
-            const page = document.querySelector(".slidePagination");
-            const newDot = document.createElement("li");
-            const item = document.querySelectorAll(".item");
-            const itemLen = item.length;
-            let indexNum = itemLen;
 
             newDiv.setAttribute("class", "item");
             list.appendChild(newDiv);
-            newDot.setAttribute("class", "dot");
-            newDot.setAttribute("date-index", `${parseInt(indexNum) + 1}`);
-            page.appendChild(newDot);
         }
     } else {
         number = 5;
         for (i = 0; i < number; i++) {
             const list = document.querySelector(".list");
             const newDiv = document.createElement("div");
-            const page = document.querySelector(".slidePagination");
-            const newDot = document.createElement("li");
-            const item = document.querySelectorAll(".item");
-            const itemLen = item.length;
-            let indexNum = itemLen;
 
             newDiv.setAttribute("class", "item");
             list.appendChild(newDiv);
-            newDot.setAttribute("class", "dot");
-            newDot.setAttribute("date-index", `${parseInt(indexNum) + 1}`);
-            page.appendChild(newDot);
         }
     }
+    makeClone();
+    initfunction();
+});
+function makeClone() {
+    const item = document.querySelectorAll(".item");
+    const list = document.querySelector(".list");
+
+    let cloneSlide_first = item[0].cloneNode(true);
+    let cloneSlide_last = list.lastElementChild.cloneNode(true);
+
+    list.append(cloneSlide_first);
+    list.insertBefore(cloneSlide_last, list.firstElementChild);
+}
+
+function initfunction() {
     const list = document.querySelector(".list");
     const item = document.querySelectorAll(".item");
     const itemLen = item.length;
     const slideWidth = 400;
 
-    list.style.width = slideWidth * itemLen + "px";
-});
+    list.style.width = slideWidth * (itemLen + 2) + "px";
+    list.style.left = -slideWidth + "px";
+}
