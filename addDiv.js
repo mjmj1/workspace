@@ -1,7 +1,9 @@
 const createDiv = document.querySelector(".createDiv");
+let flag = true;
 
 createDiv.addEventListener("click", function () {
     let number = prompt("개수를 입력하세요 (최대 5)");
+
     if (number >= 1 && number <= 5) {
         for (i = 0; i < number; i++) {
             const list = document.querySelector(".list");
@@ -29,8 +31,11 @@ createDiv.addEventListener("click", function () {
             list.appendChild(newDiv);
         }
     }
-    makeClone();
-    initfunction();
+    if (flag == true) {
+        makeClone();
+        initfunction();
+    }
+    flag = false;
 });
 function makeClone() {
     const item = document.querySelectorAll(".item");
