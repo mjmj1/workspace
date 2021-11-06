@@ -1,5 +1,4 @@
 const createDiv = document.querySelector(".createDiv");
-let flag = true;
 
 createDiv.addEventListener("click", function () {
     let number = prompt("개수를 입력하세요 (최대 5)");
@@ -7,35 +6,49 @@ createDiv.addEventListener("click", function () {
     if (number >= 1 && number <= 5) {
         for (i = 0; i < number; i++) {
             const list = document.querySelector(".list");
+            const sliders = document.querySelector(".sliders");
             const newDiv = document.createElement("div");
+            const sliderlist = document.createElement("li");
 
             newDiv.setAttribute("class", "item");
+            sliderlist.setAttribute("class", "slidelist");
+            sliderlist.setAttribute("data-index", i);
             list.appendChild(newDiv);
+            sliders.appendChild(sliderlist);
         }
-    } else if (number < 1) {
-        number = 1;
-        for (i = 0; i < number; i++) {
-            const list = document.querySelector(".list");
-            const newDiv = document.createElement("div");
-
-            newDiv.setAttribute("class", "item");
-            list.appendChild(newDiv);
-        }
-    } else {
+    } else if (number > 5) {
         number = 5;
         for (i = 0; i < number; i++) {
             const list = document.querySelector(".list");
+            const sliders = document.querySelector(".sliders");
             const newDiv = document.createElement("div");
+            const sliderlist = document.createElement("li");
 
             newDiv.setAttribute("class", "item");
+            sliderlist.setAttribute("class", "slidelist");
+            sliderlist.setAttribute("data-index", i);
             list.appendChild(newDiv);
+            sliders.appendChild(sliderlist);
+        }
+    } else {
+        number = 1;
+        for (i = 0; i < number; i++) {
+            const list = document.querySelector(".list");
+            const sliders = document.querySelector(".sliders");
+            const newDiv = document.createElement("div");
+            const sliderlist = document.createElement("li");
+
+            newDiv.setAttribute("class", "item");
+            sliderlist.setAttribute("class", "slidelist");
+            sliderlist.setAttribute("data-index", i);
+            list.appendChild(newDiv);
+            sliders.appendChild(sliderlist);
         }
     }
-    if (flag == true) {
-        makeClone();
-        initfunction();
-    }
-    flag = false;
+
+    makeClone();
+    initfunction();
+    createDiv.remove();
 });
 function makeClone() {
     const item = document.querySelectorAll(".item");
