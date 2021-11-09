@@ -55,12 +55,13 @@ footer {
     border: black solid 3px;
     box-sizing: border-box;
 }
-.Btnbox {
+.btnBox {
     position: absolute;
     top: 230px;
     margin-top: -40px;
+    visibility: hidden;
 }
-.Btnbox > button {
+.btnBox > button {
     position: absolute;
     width: 80px;
     height: 80px;
@@ -71,10 +72,10 @@ footer {
     background-color: white;
 }
 .btnNext {
-    left: 300px;
+    left: 230px;
 }
 .btnPrev {
-    right: 300px;
+    right: 230px;
 }
 .createDiv {
     width: 100%;
@@ -84,20 +85,18 @@ footer {
     box-sizing: border-box;
     cursor: pointer;
 }
-.sliders {
+.pages {
     position: relative;
     display: flex;
     justify-content: center;
     width: 200px;
-    height: 20px;
-    border-radius: 2px;
-    padding-left: 2px;
-    padding-right: 2px;
-    background-color: black;
+    height: 10px;
+    background-color: none;
 }
-.slidelist {
+.dot {
     flex-grow: 1;
     margin: 2px;
     background-color: gray;
     list-style: none;
+    cursor: pointer;
 }
