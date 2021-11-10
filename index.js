@@ -83,10 +83,9 @@ function pages() {
             let index = dots.getAttribute("data-index");
 
             if (index != curIndex) {
-                moveSlide(index, 1);
+                moveSlide(index);
                 curIndex = index;
             }
-            console.log(moveSlide());
             console.log(curIndex);
         });
     }
@@ -101,10 +100,10 @@ btnNext.addEventListener("click", function () {
     const item = document.querySelectorAll(".item");
     const itemLen = item.length;
     const slideWidth = 400;
-    console.log("click");
 
     if (curIndex <= itemLen - 1) {
-        moveSlide(curIndex, 2);
+        moveSlide(curIndex + 2);
+        console.log(curIndex);
     }
     if (curIndex === itemLen - 3) {
         setTimeout(function () {
@@ -112,7 +111,7 @@ btnNext.addEventListener("click", function () {
 
             list.style.left = -slideWidth + "px";
             list.style.transition = `${0}s ease-out`;
-        }, 500);
+        }, slideSpeed);
         curIndex = -1;
     }
     curIndex += 1;
@@ -123,9 +122,9 @@ btnPrev.addEventListener("click", function () {
     const itemLen = item.length;
     const slideWidth = 400;
 
-    console.log("click");
     if (curIndex >= 0) {
         moveSlide(curIndex);
+        console.log(curIndex);
     }
     if (curIndex == 0) {
         setTimeout(function () {
@@ -133,7 +132,7 @@ btnPrev.addEventListener("click", function () {
 
             list.style.left = -(itemLen - 2) * slideWidth + "px";
             list.style.transition = `${0}s ease-out`;
-        }, 500);
+        }, slideSpeed);
         curIndex = itemLen - 2;
     }
     curIndex -= 1;
@@ -143,11 +142,6 @@ function moveSlide(num, sum) {
     const list = document.querySelector(".list");
     const slideWidth = 400;
 
-    if (sum == true) {
-        list.style.left = -(num + sum) * slideWidth + "px";
-        list.style.transition = `${0.3}s ease-out`;
-    } else {
-        list.style.left = -num * slideWidth + "px";
-        list.style.transition = `${0.3}s ease-out`;
-    }
+    list.style.left = -num * slideWidth + "px";
+    list.style.transition = `${0.3}s ease-out`;
 }
