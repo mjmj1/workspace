@@ -80,13 +80,12 @@ function pages() {
     console.log(dot);
     for (const dots of dot) {
         dots.addEventListener("click", function () {
-            let index = dots.getAttribute("data-index");
+            let index = Number(dots.getAttribute("data-index"));
 
             if (index != curIndex) {
-                moveSlide(index);
+                moveSlide(index + 1);
                 curIndex = index;
             }
-            console.log(curIndex);
         });
     }
 }
@@ -103,7 +102,6 @@ btnNext.addEventListener("click", function () {
 
     if (curIndex <= itemLen - 1) {
         moveSlide(curIndex + 2);
-        console.log(curIndex);
     }
     if (curIndex === itemLen - 3) {
         setTimeout(function () {
@@ -124,7 +122,7 @@ btnPrev.addEventListener("click", function () {
 
     if (curIndex >= 0) {
         moveSlide(curIndex);
-        console.log(curIndex);
+        console.log(typeof curIndex);
     }
     if (curIndex == 0) {
         setTimeout(function () {
@@ -138,7 +136,7 @@ btnPrev.addEventListener("click", function () {
     curIndex -= 1;
 });
 
-function moveSlide(num, sum) {
+function moveSlide(num) {
     const list = document.querySelector(".list");
     const slideWidth = 400;
 
