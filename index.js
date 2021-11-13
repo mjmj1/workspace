@@ -49,6 +49,7 @@ createDiv.addEventListener("click", function () {
     makeClone();
     initfunction();
     pages();
+    pagination();
     createDiv.remove();
 });
 
@@ -77,7 +78,6 @@ function initfunction() {
 function pages() {
     const dot = document.querySelectorAll(".dot");
 
-    console.log(dot);
     for (const dots of dot) {
         dots.addEventListener("click", function () {
             let index = Number(dots.getAttribute("data-index"));
@@ -86,8 +86,20 @@ function pages() {
                 moveSlide(index + 1);
                 curIndex = index;
             }
+            pagination();
         });
     }
+}
+function pagination() {
+    const dot = document.querySelectorAll(".dot");
+    const item = document.querySelectorAll(".item");
+    const itemLen = item.length;
+    let index = Number(dot[curIndex].getAttribute("data-index"));
+    let name = "active";
+    console.log(dot.length);
+    console.log(itemLen);
+    console.log(index);
+    dot[index].classList.toggle(name);
 }
 //슬라이드 버튼 이벤트
 const btnNext = document.querySelector(".btnNext");
@@ -113,6 +125,7 @@ btnNext.addEventListener("click", function () {
         curIndex = -1;
     }
     curIndex += 1;
+    pagination();
 });
 
 btnPrev.addEventListener("click", function () {
@@ -122,7 +135,6 @@ btnPrev.addEventListener("click", function () {
 
     if (curIndex >= 0) {
         moveSlide(curIndex);
-        console.log(typeof curIndex);
     }
     if (curIndex == 0) {
         setTimeout(function () {
@@ -134,6 +146,7 @@ btnPrev.addEventListener("click", function () {
         curIndex = itemLen - 2;
     }
     curIndex -= 1;
+    pagination();
 });
 
 function moveSlide(num) {

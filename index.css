@@ -94,10 +94,13 @@ footer {
     height: 10px;
     background-color: none;
 }
+.pages > .active {
+    background-color: black;
+}
 .dot {
     flex-grow: 1;
     margin: 2px;
-    background-color: gray;
     list-style: none;
+    background-color: blue;
     cursor: pointer;
 }
