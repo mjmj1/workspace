@@ -92,14 +92,19 @@ function pages() {
 }
 function pagination() {
     const dot = document.querySelectorAll(".dot");
-    const item = document.querySelectorAll(".item");
-    const itemLen = item.length;
+    const dotLen = dot.length;
+
     let index = Number(dot[curIndex].getAttribute("data-index"));
     let name = "active";
-    console.log(dot.length);
-    console.log(itemLen);
+    console.log(dotLen);
     console.log(index);
-    dot[index].classList.toggle(name);
+    dot[index].classList.add(name);
+    for (let i = 0; i < index; i++) {
+        dot[i].classList.remove(name);
+    }
+    for (let i = index + 1; i < dotLen; i++) {
+        dot[i].classList.remove(name);
+    }
 }
 //슬라이드 버튼 이벤트
 const btnNext = document.querySelector(".btnNext");

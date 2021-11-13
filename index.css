@@ -95,12 +95,12 @@ footer {
     background-color: none;
 }
 .pages > .active {
-    background-color: black;
+    background-color: palevioletred;
 }
 .dot {
     flex-grow: 1;
     margin: 2px;
     list-style: none;
-    background-color: blue;
+    background-color: pink;
     cursor: pointer;
 }
