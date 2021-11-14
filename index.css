@@ -21,6 +21,7 @@ section {
 }
 footer {
     position: relative;
+
     height: 20%;
 }
 .container {
@@ -57,19 +58,19 @@ footer {
 }
 .btnBox {
     position: absolute;
-    top: 230px;
-    margin-top: -40px;
+    top: 180px;
     visibility: hidden;
 }
 .btnBox > button {
     position: absolute;
-    width: 80px;
-    height: 80px;
-    font-size: 80px;
-    color: pink;
-    border: 0px;
+    width: 100px;
+    height: 100px;
+    font-size: 30px;
+    text-align: center;
+    color: white;
     cursor: pointer;
-    background-color: white;
+    border: none;
+    background-color: pink;
 }
 .btnNext {
     left: 230px;
@@ -82,7 +83,7 @@ footer {
     height: 100%;
     font-size: 40px;
     border: black solid 1px;
-    background-color: cadetblue;
+    background-color: white;
     box-sizing: border-box;
     cursor: pointer;
 }
@@ -103,4 +104,14 @@ footer {
     list-style: none;
     background-color: pink;
     cursor: pointer;
+}
+.upload {
+    width: 100px;
+    height: 100px;
+    border: none;
+    background-color: palevioletred;
+    color: white;
+    cursor: pointer;
+    font-size: 30px;
+    text-align: center;
 }
