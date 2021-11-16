@@ -33,9 +33,16 @@
                 </div>
             </div>
         </section>
-        <input>
-            <input type="file" class="upload"></input>
-            <input type="submit" value="upload" class="upload"></input>
+        <footer>
+            <form method="post"
+            enctype="multipart/form-data"
+            action="./upload-multiple">
+                <input type="file" name="imgUp" class="imgUp" id= "imgUp" multiple></input>
+                <input type="submit" value="UPLOAD" class="upload" onclick="location.reload"></input>
+            </form>
+            <form>
+                <button></button>
+            </form>
         </footer>
     </body>
     <script src="index.js"></script>
