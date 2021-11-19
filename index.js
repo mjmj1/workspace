@@ -1,19 +1,38 @@
-const createDiv = document.querySelector(".createDiv");
-//create 버튼 이벤트
-createDiv.addEventListener("click", function () {
-    let number = prompt("개수를 입력하세요 (최대 5)");
+const createImg = document.querySelector(".createImg");
+const btnNext = document.querySelector(".btnNext");
+const btnPrev = document.querySelector(".btnPrev");
+const slideSpeed = 300;
+let curIndex = 0;
 
+//create 버튼 이벤트
+createImg.addEventListener("click", function () {
+    let number = 0;
+    number = prompt("개수를 입력하세요 (최대 5)");
+
+    sessionStorage.setItem("value", number);
+    if (!sessionStorage.getItem("value")) {
+        sessionStorage.removeItem("value");
+    }
+});
+
+let stay = sessionStorage.getItem("value");
+session(stay);
+
+function session(number) {
     if (number >= 1 && number <= 5) {
         for (i = 0; i < number; i++) {
             const list = document.querySelector(".list");
             const pages = document.querySelector(".pages");
-            const newDiv = document.createElement("div");
+            const newImg = document.createElement("iframe");
             const newLi = document.createElement("li");
 
-            newDiv.setAttribute("class", "item");
+            newImg.setAttribute("class", "item");
+            newImg.src = `http://localhost:8080/img${i + 1}`;
             newLi.setAttribute("class", "dot");
+            newImg.setAttribute("scrolling", "no");
+            newImg.setAttribute("align", "middle");
             newLi.setAttribute("data-index", i);
-            list.appendChild(newDiv);
+            list.appendChild(newImg);
             pages.appendChild(newLi);
         }
     } else if (number > 5) {
@@ -21,37 +40,31 @@ createDiv.addEventListener("click", function () {
         for (i = 0; i < number; i++) {
             const list = document.querySelector(".list");
             const pages = document.querySelector(".pages");
-            const newDiv = document.createElement("div");
+            const newImg = document.createElement("iframe");
             const newLi = document.createElement("li");
 
-            newDiv.setAttribute("class", "item");
+            newImg.setAttribute("class", "item");
+            newImg.src = `http://localhost:8080/img${i + 1}`;
             newLi.setAttribute("class", "dot");
+            newImg.setAttribute("scrolling", "no");
+            newImg.setAttribute("align", "middle");
             newLi.setAttribute("data-index", i);
-            list.appendChild(newDiv);
+            list.appendChild(newImg);
             pages.appendChild(newLi);
         }
-    } else {
-        number = 1;
-        for (i = 0; i < number; i++) {
-            const list = document.querySelector(".list");
-            const pages = document.querySelector(".pages");
-            const newDiv = document.createElement("div");
-            const newLi = document.createElement("li");
-
-            newDiv.setAttribute("class", "item");
-            newLi.setAttribute("class", "dot");
-            newLi.setAttribute("data-index", i);
-            list.appendChild(newDiv);
-            pages.appendChild(newLi);
-        }
+    } else if (number < 0) {
+        alert("1 이상 숫자만 입력하세요");
     }
 
-    makeClone();
-    initfunction();
-    pages();
-    pagination();
-    createDiv.remove();
-});
+    try {
+        makeClone();
+        initfunction();
+        pages();
+        pagination();
+    } catch (e) {
+        console.log("대기중");
+    }
+}
 
 function makeClone() {
     const item = document.querySelectorAll(".item");
@@ -96,8 +109,6 @@ function pagination() {
 
     let index = Number(dot[curIndex].getAttribute("data-index"));
     let name = "active";
-    console.log(dotLen);
-    console.log(index);
     dot[index].classList.add(name);
     for (let i = 0; i < index; i++) {
         dot[i].classList.remove(name);
@@ -107,10 +118,6 @@ function pagination() {
     }
 }
 //슬라이드 버튼 이벤트
-const btnNext = document.querySelector(".btnNext");
-const btnPrev = document.querySelector(".btnPrev");
-const slideSpeed = 300;
-let curIndex = 0;
 
 btnNext.addEventListener("click", function () {
     const item = document.querySelectorAll(".item");
@@ -161,3 +168,5 @@ function moveSlide(num) {
     list.style.left = -num * slideWidth + "px";
     list.style.transition = `${0.3}s ease-out`;
 }
+
+//upload

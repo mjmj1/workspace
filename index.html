@@ -6,14 +6,14 @@
     </head>
     <body>
         <header>
-            <h1>Welcome to imageSlide</h1>
+            <h1>Welcome to imageSlide</h1><br>
+            <input type="button" value="CREATE" class="createImg" onclick="window.location.reload()"/>
         </header>
         <section>
             <div class="container">
                 <div class="wrap">
                     <ul class="pages"></ul>
                     <div class="view">
-                        <input type="button" value="CREATE" class="createDiv" />
                         <div class="list"></div>
                     </div>
                     <div class="btnBox">
@@ -30,9 +30,9 @@
         <footer>
             <form method="post"
             enctype="multipart/form-data"
-            action="./upload-multiple">
-                <input type="file" name="imgUp" class="imgUp" id= "imgUp" multiple></input>
-                <input type="submit" value="UPLOAD" class="upload" onclick="location.reload"></input>
+            action="/upload-multiple">
+                <input type="file" name="imgUp" class="imgUp" multiple></input>
+                <button class="upload" onclick="location.reload">SUBMIT</button>
             </form>
         </footer>
     </body>

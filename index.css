@@ -61,9 +61,11 @@ footer {
     border: black solid 1px;
     box-sizing: border-box;
 }
-img {
-    height: 400px;
+.item > img {
+    width: 100%;
+    height: 100%;
 }
+
 .btnBox {
     position: absolute;
     top: 180px;
@@ -78,7 +80,7 @@ img {
     color: white;
     cursor: pointer;
     border: none;
-    background-color: rgb(181, 214, 146);
+    background-color: rgb(122, 145, 98);
 }
 .btnNext {
     left: 230px;
@@ -86,12 +88,13 @@ img {
 .btnPrev {
     right: 230px;
 }
-.createDiv {
-    width: 100%;
-    height: 100%;
-    font-size: 40px;
-    border: black solid 1px;
-    background-color: white;
+.createImg {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    border: none;
+    background-color: rgb(163, 204, 163);
+    color: white;
     box-sizing: border-box;
     cursor: pointer;
 }
